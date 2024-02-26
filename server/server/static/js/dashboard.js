@@ -92,7 +92,7 @@ $(async function () {
 
   $("#temperature").html(`${paddedTemperature[seriesCount - 1]} °C`);
   $("#humidity").html(`${paddedHumidity[seriesCount - 1]} %`);
-  console.log("meow")
+  
   const lightValue = paddedLight[seriesCount - 1];
   let lightVolume;
   if (lightValue < 1000) lightVolume = "Dark";

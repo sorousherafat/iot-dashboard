@@ -2,6 +2,7 @@ import json
 
 from django.http import HttpResponse, HttpResponseNotAllowed, JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Data, Relay
 from .client import client
@@ -21,6 +22,7 @@ def data(request):
     return JsonResponse(data)
 
 
+@csrf_exempt
 def relay(request):
     if request.method == "POST":
         body = json.loads(request.body)
