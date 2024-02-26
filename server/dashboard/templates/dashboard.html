@@ -11,7 +11,7 @@
             <div class="row alig n-items-start">
               <div class="col-8">
                 <h5 class="card-title mb-9 fw-semibold">Temperature</h5>
-                <h4 id="temperature" class="mb-3">°C</h4>
+                <h4 id="temperature" class="mb-3"> °C</h4>
               </div>
               <div class="col-4">
                 <div class="d-flex justify-content-end">
@@ -34,7 +34,7 @@
           <div class="row alig n-items-start">
             <div class="col-8">
               <h5 class="card-title mb-9 fw-semibold">Humidity</h5>
-              <h4 id="humidity" class="mb-3">20 %</h4>
+              <h4 id="humidity" class="mb-3"> %</h4>
             </div>
             <div class="col-4">
               <div class="d-flex justify-content-end">
@@ -56,7 +56,7 @@
           <div class="row alig n-items-start">
             <div class="col-8">
               <h5 class="card-title mb-9 fw-semibold">Light</h5>
-              <h4 id="light" class="mb-3">3450</h4>
+              <h4 id="light" class="mb-3">0 (Dark)</h4>
             </div>
             <div class="col-4">
               <div class="d-flex justify-content-end">
@@ -78,7 +78,7 @@
           <div class="row alig n-items-start justify-content-between">
             <div class="col-4">
               <h5 class="card-title mb-9 fw-semibold">Wifi Connection</h5>
-              <h4 id="wifi" class="mb-3">wifi</h4>
+              <h4 id="wifi" class="mb-3">Wifi name</h4>
             </div>
             <div class="col-2">
               <div class="d-flex justify-content-end">
@@ -98,7 +98,7 @@
             <div class="col-4">
               <h5 class="card-title mb-9 fw-semibold">Relay</h5>
               <div class="form-check form-switch d-flex align-items-center">
-                <input class="form-check-input" type="checkbox" role="switch" id="relay-input" />
+                <input class="form-check-input" type="checkbox" role="switch" id="relay-input" {% if relay %}checked{% endif %} />
                 <label for="relay-input" class="form-check-label ps-4"><h4 id="relay">ON</h4></label>
               </div>
             </div>

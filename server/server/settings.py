@@ -79,8 +79,12 @@ WSGI_APPLICATION = "server.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
     }
 }
 
@@ -121,9 +125,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIRS = [
-    PROJECT_DIR / "static",
-]
+STATIC_ROOT = PROJECT_DIR / "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -131,6 +133,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # MQTT broker settings
+
 MQTT_BROKER_HOST = os.getenv("MQTT_BROKER_HOST", "127.0.0.1")
 MQTT_DATA_TOPIC = os.getenv("MQTT_DATA_TOPIC", "wss/iot/data")
 MQTT_COMMAND_TOPIC = os.getenv("MQTT_COMMAND_TOPIC", "wss/iot/command")

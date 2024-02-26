@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.contrib.staticfiles import views as static_views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import re_path
 
 urlpatterns = [
@@ -28,6 +29,4 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += [
-        re_path(r"^static/(?P<path>.*)$", static_views.serve),
-    ]
+    urlpatterns += staticfiles_urlpatterns()

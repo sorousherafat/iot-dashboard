@@ -51,15 +51,14 @@ function drawChart(id, name, color, data) {
 function padArray(array, length, fill) {
   return length > array.length
     ? Array(length - array.length)
-        .fill(fill)
-        .concat(array)
+      .fill(fill)
+      .concat(array)
     : array;
 }
 
 async function fetchData() {
   const response = await fetch("/mqtt/data/");
   const data = await response.json();
-  console.log(data);
   return data;
 }
 
@@ -93,7 +92,13 @@ $(async function () {
 
   $("#temperature").html(`${paddedTemperature[seriesCount - 1]} °C`);
   $("#humidity").html(`${paddedHumidity[seriesCount - 1]} %`);
-  $("#light").html(paddedLight[seriesCount - 1]);
+  console.log("meow")
+  const lightValue = paddedLight[seriesCount - 1];
+  let lightVolume;
+  if (lightValue < 1000) lightVolume = "Dark";
+  else if (lightValue < 3000) lightVolume = "Normal";
+  else lightVolume = "Bright";
+  $("#light").html(`${lightValue} (${lightVolume})`);
 
   $("#wifi").html(wifi);
   $("#relay").html(relay ? "ON" : "OFF");
